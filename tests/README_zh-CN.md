@@ -175,7 +175,7 @@ def test_external_service():
 pip install -e .
 
 # 或者设置 PYTHONPATH
-export PYTHONPATH=/path/to/rss-ai-news
+export PYTHONPATH=/path/to/rss-ai-news-py
 ```
 
 ## 最佳实践

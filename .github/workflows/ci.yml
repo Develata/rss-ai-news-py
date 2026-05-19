@@ -93,11 +93,11 @@ jobs:
           context: .
           push: false
           load: true
-          tags: rss-ai-news:test
+          tags: rss-ai-news-py:test
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Test Docker image
         if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/main' && !startsWith(github.ref, 'refs/tags/v'))
         run: |
-          docker run --rm rss-ai-news:test python -c "import news_crawler; print('✓ Import successful')"
+          docker run --rm rss-ai-news-py:test python -c "import news_crawler; print('✓ Import successful')"

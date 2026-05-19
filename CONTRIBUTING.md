@@ -5,7 +5,7 @@ Thank you for your interest in contributing! We welcome contributions from the c
 ## 🚀 Quick Start
 
 1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/YOUR_USERNAME/rss-ai-news.git`
+2. **Clone** your fork: `git clone https://github.com/YOUR_USERNAME/rss-ai-news-py.git`
 3. **Create a branch**: `git checkout -b feature/amazing-feature`
 4. **Make changes** and commit: `git commit -m 'feat: add amazing feature'`
 5. **Push** to your fork: `git push origin feature/amazing-feature`
@@ -23,8 +23,8 @@ Thank you for your interest in contributing! We welcome contributions from the c
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Develata/rss-ai-news.git
-cd rss-ai-news
+git clone https://github.com/Develata/rss-ai-news-py.git
+cd rss-ai-news-py
 
 # 2. Set up environment
 cp .env.example .env
@@ -109,7 +109,7 @@ Before submitting PR, ensure:
 
 ## 🐛 Reporting Bugs
 
-Use the [GitHub issue tracker](https://github.com/Develata/rss-ai-news/issues):
+Use the [GitHub issue tracker](https://github.com/Develata/rss-ai-news-py/issues):
 
 1. **Search existing issues** first
 2. **Use issue templates** (if available)
@@ -142,7 +142,7 @@ Help improve documentation:
 
 Looking for ways to contribute? Check these areas:
 
-- 🐛 **Bug fixes**: See [issues labeled 'bug'](https://github.com/Develata/rss-ai-news/labels/bug)
+- 🐛 **Bug fixes**: See [issues labeled 'bug'](https://github.com/Develata/rss-ai-news-py/labels/bug)
 - 📝 **Documentation**: Improve clarity, fix typos, add examples
 - 🧪 **Testing**: Increase test coverage, add edge case tests
 - 🌐 **Localization**: Add support for more languages

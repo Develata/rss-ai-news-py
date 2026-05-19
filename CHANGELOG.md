@@ -68,5 +68,5 @@ Fresh installation - no migration needed for first-time users.
 
 ---
 
-[Unreleased]: https://github.com/Develata/rss-ai-news/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Develata/rss-ai-news/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Develata/rss-ai-news-py/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Develata/rss-ai-news-py/releases/tag/v0.1.0

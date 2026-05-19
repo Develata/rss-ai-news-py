@@ -1,7 +1,7 @@
 services:
   news_crawler:
     # 使用预构建镜像（推荐）
-    image: ghcr.io/develata/rss-ai-news:${IMAGE_TAG:-latest}
+    image: ghcr.io/develata/rss-ai-news-py:${IMAGE_TAG:-latest}
     
     # 如需本地构建，取消注释以下内容并注释上面的 image 行
     # build:

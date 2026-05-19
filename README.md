@@ -5,10 +5,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Docker](https://img.shields.io/badge/docker-ready-brightgreen.svg)](https://hub.docker.com/)
-[![CI Status](https://github.com/Develata/rss-ai-news/workflows/CI/badge.svg)](https://github.com/Develata/rss-ai-news/actions)
+[![CI Status](https://github.com/Develata/rss-ai-news-py/workflows/CI/badge.svg)](https://github.com/Develata/rss-ai-news-py/actions)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Develata/rss-ai-news/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Develata/rss-ai-news-py/graphs/commit-activity)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 **你的私人 AI 情报官 | 全自动新闻聚合、分析与发布系统**
@@ -41,7 +41,7 @@
 
 ## 🐳 Docker 快速部署 (推荐)
 
-项目镜像已发布到 GitHub Container Registry：`ghcr.io/develata/rss-ai-news`。
+项目镜像已发布到 GitHub Container Registry：`ghcr.io/develata/rss-ai-news-py`。
 
 如果你**只关心运行**、并希望**本地占用最小**，完全可以不克隆源代码：只准备少量文件/目录，然后直接拉取镜像运行。
 
@@ -50,15 +50,15 @@
 只下载 2 个文件（`docker-compose.yml` + `.env.example`），再创建运行所需目录即可：
 
 ```bash
-mkdir rss-ai-news && cd rss-ai-news
+mkdir rss-ai-news-py && cd rss-ai-news-py
 mkdir -p logs data
-curl -O https://raw.githubusercontent.com/Develata/rss-ai-news/main/docker-compose.yml
-curl -O https://raw.githubusercontent.com/Develata/rss-ai-news/main/.env.example
+curl -O https://raw.githubusercontent.com/Develata/rss-ai-news-py/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/Develata/rss-ai-news-py/main/.env.example
 cp .env.example .env
 docker compose up -d --pull always
 ```
 
-> **版本锁定**：在 `.env` 里新增/修改 `IMAGE_TAG=latest`（或具体版本号），compose 会拉取 `ghcr.io/develata/rss-ai-news:${IMAGE_TAG}`。
+> **版本锁定**：在 `.env` 里新增/修改 `IMAGE_TAG=latest`（或具体版本号），compose 会拉取 `ghcr.io/develata/rss-ai-news-py:${IMAGE_TAG}`。
 
 > **进一步减少本地文件**：默认 compose 会挂载 `./news_crawler/categories` 作为外部板块配置热更新。
 > - 如果你不需要自定义板块、希望直接用镜像内置配置：可在 `docker-compose.yml` 中删除/注释该挂载行，从而不必在本地准备 `news_crawler/categories` 目录。
@@ -68,11 +68,11 @@ docker compose up -d --pull always
 如果你连 `docker-compose.yml` 都不想保存，可以直接 `docker run`（仍建议保留本地 `.env` 以避免把密钥写进命令行历史）：
 
 ```bash
-mkdir -p rss-ai-news/{logs,data}
-cd rss-ai-news
+mkdir -p rss-ai-news-py/{logs,data}
+cd rss-ai-news-py
 
 # 仍然建议从仓库下载一份 .env.example 作为模板
-curl -O https://raw.githubusercontent.com/Develata/rss-ai-news/main/.env.example
+curl -O https://raw.githubusercontent.com/Develata/rss-ai-news-py/main/.env.example
 cp .env.example .env
 
 docker run -d \
@@ -84,7 +84,7 @@ docker run -d \
     -v "$(pwd)/data:/app/data:rw" \
     -v /etc/localtime:/etc/localtime:ro \
     -v /etc/timezone:/etc/timezone:ro \
-    ghcr.io/develata/rss-ai-news:latest
+    ghcr.io/develata/rss-ai-news-py:latest
 ```
 
 > 如果需要外部板块配置热更新，再额外挂载 `$(pwd)/news_crawler/categories:/app/config/categories:ro` 并创建对应目录即可。
@@ -94,8 +94,8 @@ docker run -d \
 如果你希望在仓库内直接编辑板块配置、或进行开发调试，按传统方式克隆即可：
 
 ```bash
-git clone https://github.com/Develata/rss-ai-news.git
-cd rss-ai-news
+git clone https://github.com/Develata/rss-ai-news-py.git
+cd rss-ai-news-py
 cp .env.example .env
 ```
 
@@ -260,8 +260,8 @@ Terry_Tao = "https://terrytao.wordpress.com/feed/"
 
 ```bash
 # 克隆仓库
-git clone https://github.com/Develata/rss-ai-news.git
-cd rss-ai-news
+git clone https://github.com/Develata/rss-ai-news-py.git
+cd rss-ai-news-py
 
 # 安装开发依赖
 pip install -e ".[dev,test]"
@@ -288,9 +288,9 @@ ruff check --fix news_crawler tests
 ## 📧 联系方式 | Contact
 
 - **项目维护者**: Develata Team
-- **Email**: [rss-ai-news@develata.com](mailto:rss-ai-news@develata.com)
-- **Issues**: [GitHub Issues](https://github.com/Develata/rss-ai-news/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Develata/rss-ai-news/discussions)
+- **Email**: [rss-ai-news-py@develata.com](mailto:rss-ai-news-py@develata.com)
+- **Issues**: [GitHub Issues](https://github.com/Develata/rss-ai-news-py/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Develata/rss-ai-news-py/discussions)
 
 ---
 
